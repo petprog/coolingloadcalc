@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".WallFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewWallA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                android:text="@string/wall_a"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutWallLengthA"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                android:hint="@string/wall_length_hint"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewWallA">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditTextWallLengthA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutWallWidthA"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:hint="@string/wall_width_hint"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallLengthA"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallLengthA">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditTextWallWidthA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textViewOrientationWallA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                android:text="@string/enter_orientation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWallLengthA" />
+
+            <Spinner
+                android:id="@+id/spinnerWallA"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewOrientationWallA"
+                app:layout_constraintStart_toEndOf="@+id/textViewOrientationWallA"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWallLengthA" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupWallA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewOrientationWallA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/spinnerWallA">
+
+                <RadioButton
+                    android:id="@+id/radioButtonExternalWallA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/external_wall_text" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonInternalWallA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/internal_wall_text" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textViewWallB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="44dp"
+                android:text="@string/wall_b"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewOrientationWallA" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutWallLengthB"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                android:hint="@string/wall_length_hint"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewWallB">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditTextWallLengthB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutWallWidthB"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:hint="@string/wall_width_hint"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallLengthB"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallLengthB">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditTextWallWidthB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textViewOrientationWallB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                android:text="@string/enter_orientation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutWallLengthB" />
+
+            <Spinner
+                android:id="@+id/spinnerWallB"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                app:layout_constraintBottom_toBottomOf="@id/textViewOrientationWallB"
+                app:layout_constraintStart_toEndOf="@id/textViewOrientationWallB"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutWallLengthB" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupWallB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewOrientationWallB"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/spinnerWallA">
+
+                <RadioButton
+                    android:id="@+id/radioButtonExternalWallB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/external_wall_text" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonInternalWallB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/internal_wall_text" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/textViewWallC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="44dp"
+                android:text="@string/wall_c"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewOrientationWallB" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutWallLengthC"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                android:hint="@string/wall_length_hint"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewWallC">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditTextWallLengthC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutWallWidthC"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:hint="@string/wall_width_hint"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallLengthC"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallLengthC">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditTextWallWidthC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textViewOrientationWallC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                android:text="@string/enter_orientation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutWallLengthC" />
+
+            <Spinner
+                android:id="@+id/spinnerWallC"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                app:layout_constraintBottom_toBottomOf="@id/textViewOrientationWallC"
+                app:layout_constraintStart_toEndOf="@id/textViewOrientationWallC"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutWallLengthC" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupWallC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewOrientationWallC"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/spinnerWallC">
+
+                <RadioButton
+                    android:id="@+id/radioButtonExternalWallC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/external_wall_text" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonInternalWallC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/internal_wall_text" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/textViewWallD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="44dp"
+                android:text="@string/wall_d"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewOrientationWallC" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutWallLengthD"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                android:hint="@string/wall_length_hint"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewWallD">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditTextWallLengthD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutWallWidthD"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:hint="@string/wall_width_hint"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallLengthD"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallLengthD">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputEditTextWallWidthD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textViewOrientationWallD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                android:text="@string/enter_orientation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutWallLengthD" />
+
+            <Spinner
+                android:id="@+id/spinnerWallD"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/horizontal_layout_margin"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                app:layout_constraintBottom_toBottomOf="@id/textViewOrientationWallD"
+                app:layout_constraintStart_toEndOf="@id/textViewOrientationWallD"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayoutWallLengthD" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupWallD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewOrientationWallD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/spinnerWallD">
+
+                <RadioButton
+                    android:id="@+id/radioButtonExternalWallD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/external_wall_text" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonInternalWallD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/internal_wall_text" />
+            </RadioGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

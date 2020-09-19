@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">CoolingLoadCalc</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="wall_a">Wall A</string>
+    <string name="wall_b">Wall B</string>
+    <string name="wall_c">Wall C</string>
+    <string name="wall_d">Wall D</string>
+
+    <string name="wall_length_hint">Enter wall length</string>
+    <string name="wall_width_hint">Enter wall width</string>
+
+    <string name="enter_orientation">Orientation:</string>
+    <string name="enter_state">State:</string>
+
+    <string name="internal_wall_text">Internal</string>
+    <string name="external_wall_text">External</string>
+
+    <string-array name="orientations">
+        <item>N</item>
+        <item>NE</item>
+        <item>NW</item>
+        <item>E</item>
+        <item>W</item>
+        <item>SE</item>
+        <item>S</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="horizontal_layout_margin">16dp</dimen>
+    <dimen name="vertical_layout_margin">16dp</dimen>
+
+    <dimen name="vertical_spacing_between_walls">25dp</dimen>
+</resources>
