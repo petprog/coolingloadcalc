@@ -1,6 +1,5 @@
 package com.android.petprog.coolingloadcalc
 
-import android.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
