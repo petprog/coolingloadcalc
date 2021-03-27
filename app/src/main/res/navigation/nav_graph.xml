@@ -3,26 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/CoolingLoadCalculatorFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.android.petprog.coolingloadcalc.WallFragment"
+        android:id="@+id/CoolingLoadCalculatorFragment"
+        android:name="com.android.petprog.coolingloadcalc.CoolingLoadCalculatorFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_wall">
+        tools:layout="@layout/fragment_cooling_load_calculator">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_CoolingLoadCalculatorFragment_to_DetailFragment"
+            app:destination="@id/DetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.android.petprog.coolingloadcalc.SecondFragment"
+        android:id="@+id/DetailFragment"
+        android:name="com.android.petprog.coolingloadcalc.DetailFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_detail">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_DetailFragment_to_CoolingLoadCalculatorFragment"
+            app:destination="@id/CoolingLoadCalculatorFragment" />
+
+        <argument
+            android:name="data"
+            app:argType="com.android.petprog.coolingloadcalc.model.CalculatedData" />
     </fragment>
 </navigation>

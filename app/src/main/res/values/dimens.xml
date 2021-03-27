@@ -4,5 +4,14 @@
     <dimen name="horizontal_layout_margin">16dp</dimen>
     <dimen name="vertical_layout_margin">16dp</dimen>
 
+    <dimen name="horizontal_small_layout_margin">8dp</dimen>
+    <dimen name="vertical_small_layout_margin">8dp</dimen>
+
     <dimen name="vertical_spacing_between_walls">25dp</dimen>
+    <dimen name="spinner_width">100dp</dimen>
+
+
+    <dimen name="small_text_size">16sp</dimen>
+    <dimen name="medium_text_size">18sp</dimen>
+    <dimen name="large_text_size">22sp</dimen>
 </resources>

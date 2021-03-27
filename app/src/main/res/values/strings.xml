@@ -10,6 +10,148 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
+    <string name="space_area">Space Area</string>
+    <string name="space_text">Space</string>
+
+    <string name="space_purpose">Purpose of Space</string>
+
+    <string name="roof_text">Roof</string>
+    <string name="roof_area">Roof Area</string>
+
+    <string name="wall_text">Walls</string>
+
+    <string name="wall_text_a">Wall A</string>
+    <string name="wall_area_a">Wall A Area</string>
+
+    <string name="wall_text_b">Wall B</string>
+    <string name="wall_area_b">Wall B Area</string>
+
+    <string name="wall_text_c">Wall C</string>
+    <string name="wall_area_c">Wall C Area</string>
+
+    <string name="wall_text_d">Wall D</string>
+    <string name="wall_area_d">Wall D Area</string>
+
+    <string name="floor_text">Floor</string>
+    <string name="floor_area">Floor Area</string>
+
+    <string name="window_text">Window</string>
+    <string name="window_area">Window Area</string>
+
+    <string name="door_text">Door</string>
+    <string name="door_area">Door Area</string>
+
+    <string name="ceiling_text">Ceiling</string>
+    <string name="ceiling_area">Ceiling Area</string>
+
+    <string-array name="space_purposes">
+        <item>None</item>
+        <item>Auditorium</item>
+        <item>Bar</item>
+        <item>Bedroom</item>
+        <item>Barber Shop</item>
+        <item>Beauty salon</item>
+        <item>Break salon</item>
+        <item>Break room</item>
+        <item>Classroom</item>
+        <item>Computer lab</item>
+        <item>Cafeteria</item>
+        <item>Coffee station</item>
+        <item>Corridor</item>
+        <item>Courtroom</item>
+        <item>Dining room</item>
+        <item>Dance floor</item>
+        <item>Equipment room</item>
+        <item>Fast food</item>
+        <item>Gym</item>
+        <item>Gallery</item>
+        <item>Kitchen</item>
+        <item>Laundry room</item>
+        <item>Living room</item>
+        <item>Lecture hall</item>
+        <item>Library</item>
+        <item>Lobby</item>
+        <item>Meeting room</item>
+        <item>Museum</item>
+        <item>Office space</item>
+        <item>Pharmacy</item>
+        <item>Photo studio</item>
+        <item>Pet shop</item>
+        <item>Restaurant</item>
+        <item>Reception area</item>
+        <item>Religious worship</item>
+        <item>Science lab</item>
+        <item>Storage room</item>
+        <item>Supermarket</item>
+        <item>Stage</item>
+        <item>Swimming pool</item>
+        <item>Warehouse</item>
+    </string-array>
+
+    <string-array name="roof_types">
+        <item>Asbestos </item>
+        <item>Aluminium Roofing Sheet</item>
+        <item>Stone coated Roofing Sheet</item>
+        <item>Fibre</item>
+        <item>Pitched roof with felt</item>
+        <item>Slates roofing</item>
+    </string-array>
+
+    <string-array name="wall_types">
+        <item>Hollow Block walls</item>
+        <item>Bricks walls</item>
+        <item>Clay file walls</item>
+    </string-array>
+
+    <string-array name="floor_types">
+        <item>Concrete</item>
+        <item>Decking</item>
+        <item>Rug</item>
+        <item>Terazzo</item>
+        <item>Tile</item>
+        <item>Wood</item>
+
+    </string-array>
+
+    <string-array name="window_types">
+        <item>Wooding frame</item>
+        <item>Metal frame</item>
+    </string-array>
+
+    <string-array name="ceiling_types">
+        <item>Plaster (Pop)</item>
+        <item>Ceiling tile</item>
+        <item>Wooden panel</item>
+        <item>Asbestos cement board</item>
+    </string-array>
+
+    <string name="add_equipment_text">Add Equipments:</string>
+    <string name="add_floor_types_text">Add Type of Floors:</string>
+    <string name="add_floor_types_button_text">Add Floor Types</string>
+    <string name="ok">OK</string>
+    <string name="cancel">"Cancel"</string>
+
+    <string-array name="equipments">
+        <item>Fryer</item>
+        <item>Microwave</item>
+        <item>Gas Cooker with oven</item>
+        <item>Gas Cooker with oven</item>
+        <item>Electric cooker without oven</item>
+        <item>Blender</item>
+        <item>Toaster</item>
+        <item>Coffee or heater</item>
+        <item>Food Warmer</item>
+        <item>Hot Plate (Double Burner)</item>
+        <item>Hot Plate (Single Burner)</item>
+        <item>Refrigerator (Small)</item>
+        <item>Refrigerator (Large)</item>
+        <item>Steam Cooker</item>
+        <item>Steam Kettle</item>
+        <item>Toaster</item>
+
+    </string-array>
+
+
     <string name="wall_a">Wall A</string>
     <string name="wall_b">Wall B</string>
     <string name="wall_c">Wall C</string>
@@ -34,7 +176,7 @@
         <item>SW</item>
         <item>S</item>
     </string-array>
-    
+
     <string-array name="states">
 
         <item>Abuja</item>
@@ -77,5 +219,35 @@
     </string-array>
 
     <string name="submit_button">Submit</string>
+
+<!--    Second screen - details of the calculation-->
+
+    <string name="external_loads_text">External loads</string>
+    <string name="internal_loads_text">Internal loads</string>
+    <string name="Infiltration_and_ventilation_loads_text">Infiltration and Ventilation loads</string>
+
+
+    <string name="roof_type_text">Roof Type:</string>
+    <string name="roof_load_text">Roof Load:</string>
+    <string name="wall_type_text">Wall Type:</string>
+    <string name="wall_load_text">Wall Load:</string>
+    <string name="floor_type_text">Floor Type:</string>
+    <string name="floor_load_text">Floor Load:</string>
+    <string name="door_orientation_text">Door Orientation:</string>
+    <string name="door_load_text">Door Load:</string>
+    <string name="window_type_text">Window Type:</string>
+    <string name="window_load_text">Window Load:</string>
+    <string name="ceiling_type_text">Ceiling Type:</string>
+    <string name="ceiling_load_text">Ceiling Load:</string>
+    <string name="equipments_load_text">Equipments Load:</string>
+    <string name="list_of_equipments_text">List of Equipments</string>
+    <string name="usage_type_text">Usage Type:</string>
+    <string name="equipments_text">Equipments:</string>
+    <string name="space_dimension_text">Space Area:</string>
+    <string name="location_text">Location:</string>
+    <string name="number_of_people_text">Number of People: </string>
+    <string name="calculate_button_text">Calculate</string>
+    <string name="get_button_text">Get</string>
+
 
 </resources>
