@@ -17,10 +17,18 @@
     <string name="space_area">Space Area (m<sup><small>2</small></sup>)</string>
     <string name="space_text">Space</string>
 
+    <string name="space_width">Space Width (m)</string>
+    <string name="space_length">Space Length (m)</string>
+
     <string name="space_purpose">Purpose of Space</string>
 
     <string name="roof_text">Roof</string>
     <string name="roof_area">Area (m<sup><small>2</small></sup>)</string>
+
+    <string name="roof_width">Area (m<sup><small>2</small></sup>)</string>
+    <string name="height_hint_text">Height (m)</string>
+    <string name="width_hint_text">Width (m)</string>
+    <string name="length_hint_text">Length (m)</string>
 
     <string name="wall_text">Walls</string>
 

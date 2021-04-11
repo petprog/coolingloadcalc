@@ -60,9 +60,9 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/spaceRequiredTemperature"
+                            style="@style/TextInputEditTextDecimalSmall"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            style="@style/TextInputEditTextDecimalSmall"/>
+                            android:layout_height="wrap_content" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Spinner
@@ -77,20 +77,52 @@
                         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSpaceRequiredTemperature" />
 
 
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:id="@+id/textInputLayoutSpaceArea"-->
+                    <!--                        android:layout_width="150dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="12dp"-->
+                    <!--                        android:hint="@string/space_area"-->
+                    <!--                        app:boxBackgroundColor="#FFFFFF"-->
+                    <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--                        app:layout_constraintHorizontal_bias="0.5"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/spinnerState">-->
+
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutSpaceArea"
+                        android:id="@+id/textInputLayoutSpaceWidth"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="12dp"
-                        android:hint="@string/space_area"
+                        android:hint="@string/space_width"
                         app:boxBackgroundColor="#FFFFFF"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/spinnerState">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/spaceArea"
+                            android:id="@+id/spaceWidth"
+                            style="@style/TextInputEditTextDecimalSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutSpaceLength"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:hint="@string/space_length"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutSpaceWidth"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutSpaceWidth">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/spaceLength"
                             style="@style/TextInputEditTextDecimalSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -109,7 +141,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSpaceArea" />
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSpaceWidth" />
 
                     <Spinner
                         android:id="@+id/spinnerSpacePurpose"
@@ -154,18 +186,52 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:id="@+id/textInputLayoutRoofArea"-->
+                    <!--                        android:layout_width="120dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="@dimen/vertical_small_layout_margin"-->
+                    <!--                        android:hint="@string/roof_area"-->
+                    <!--                        app:boxBackgroundColor="#FFFFFF"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/textRoof">-->
+
+                    <!--                        <com.google.android.material.textfield.TextInputEditText-->
+                    <!--                            android:id="@+id/roofArea"-->
+                    <!--                            style="@style/TextInputEditTextDecimalSmall"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
+
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutRoofArea"
-                        android:layout_width="120dp"
+                        android:id="@+id/textInputLayoutRoofWidth"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/vertical_small_layout_margin"
-                        android:hint="@string/roof_area"
+                        android:hint="@string/width_hint_text"
                         app:boxBackgroundColor="#FFFFFF"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textRoof">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/roofArea"
+                            android:id="@+id/roofWidth"
+                            style="@style/TextInputEditTextDecimalSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutRoofLength"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/length_hint_text"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutRoofWidth"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutRoofWidth">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/roofLength"
                             style="@style/TextInputEditTextDecimalSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -178,8 +244,8 @@
                         android:layout_marginStart="@dimen/horizontal_small_layout_margin"
                         android:layout_marginEnd="@dimen/horizontal_small_layout_margin"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutRoofArea"
-                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutRoofArea" />
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutRoofLength"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutRoofLength" />
 
                     <ImageButton
                         android:id="@+id/imageButton"
@@ -258,18 +324,52 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/spinnerWallType" />
 
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:id="@+id/textInputLayoutWallAreaA"-->
+                    <!--                        android:layout_width="120dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="4dp"-->
+                    <!--                        android:hint="@string/wall_area_a"-->
+                    <!--                        app:boxBackgroundColor="@android:color/white"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/textWallA">-->
+
+                    <!--                        <com.google.android.material.textfield.TextInputEditText-->
+                    <!--                            android:id="@+id/wallAreaA"-->
+                    <!--                            style="@style/TextInputEditTextDecimalSmall"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
+
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutWallAreaA"
-                        android:layout_width="120dp"
+                        android:id="@+id/textInputLayoutWallWidthA"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:hint="@string/wall_area_a"
+                        android:hint="@string/width_hint_text"
                         app:boxBackgroundColor="@android:color/white"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textWallA">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/wallAreaA"
+                            android:id="@+id/wallWidthA"
+                            style="@style/TextInputEditTextDecimalSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutWallHeightA"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/height_hint_text"
+                        app:boxBackgroundColor="@android:color/white"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallWidthA"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutWallWidthA">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/wallHeightA"
                             style="@style/TextInputEditTextDecimalSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -279,11 +379,12 @@
                         android:id="@+id/textOrientationA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/horizontal_layout_margin"
+                        android:layout_marginBottom="4dp"
                         android:text="@string/enter_orientation"
                         android:textColor="@color/colorAccent"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallAreaA"
-                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallAreaA" />
+                        app:layout_constraintBottom_toTopOf="@+id/textViewOrientationWallA"
+                        app:layout_constraintEnd_toStartOf="@+id/getOrientationAButton"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallHeightA" />
 
                     <Spinner
                         android:id="@+id/spinnerOrientationWallA"
@@ -302,20 +403,54 @@
                         android:text="@string/wall_text_b"
                         android:textColor="@color/colorAccent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWallAreaA" />
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWallWidthA" />
+
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:id="@+id/textInputLayoutWallAreaB"-->
+                    <!--                        android:layout_width="120dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="4dp"-->
+                    <!--                        android:hint="@string/wall_area_b"-->
+                    <!--                        app:boxBackgroundColor="#FFFFFF"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/textWallB">-->
+
+                    <!--                        <com.google.android.material.textfield.TextInputEditText-->
+                    <!--                            android:id="@+id/wallAreaB"-->
+                    <!--                            style="@style/TextInputEditTextDecimalSmall"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutWallAreaB"
-                        android:layout_width="120dp"
+                        android:id="@+id/textInputLayoutWallWidthB"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:hint="@string/wall_area_b"
+                        android:hint="@string/width_hint_text"
                         app:boxBackgroundColor="#FFFFFF"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textWallB">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/wallAreaB"
+                            android:id="@+id/wallWidthB"
+                            style="@style/TextInputEditTextDecimalSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutWallHeightB"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/height_hint_text"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:layout_constraintStart_toEndOf="@id/textInputLayoutWallWidthB"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutWallWidthB">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/wallHeightB"
                             style="@style/TextInputEditTextDecimalSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -325,11 +460,12 @@
                         android:id="@+id/textOrientationB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/horizontal_layout_margin"
+                        android:layout_marginBottom="4dp"
                         android:text="@string/enter_orientation"
                         android:textColor="@color/colorAccent"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallAreaB"
-                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallAreaB" />
+                        app:layout_constraintBottom_toTopOf="@+id/textViewOrientationWallB"
+                        app:layout_constraintEnd_toStartOf="@+id/getOrientationBButton"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallHeightB" />
 
                     <Spinner
                         android:id="@+id/spinnerOrientationWallB"
@@ -348,20 +484,54 @@
                         android:text="@string/wall_text_c"
                         android:textColor="@color/colorAccent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWallAreaB" />
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWallHeightB" />
+
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:id="@+id/textInputLayoutWallAreaC"-->
+                    <!--                        android:layout_width="120dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="4dp"-->
+                    <!--                        android:hint="@string/wall_area_c"-->
+                    <!--                        app:boxBackgroundColor="#FFFFFF"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/textWallC">-->
+
+                    <!--                        <com.google.android.material.textfield.TextInputEditText-->
+                    <!--                            android:id="@+id/wallAreaC"-->
+                    <!--                            style="@style/TextInputEditTextDecimalSmall"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutWallAreaC"
-                        android:layout_width="120dp"
+                        android:id="@+id/textInputLayoutWallWidthC"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:hint="@string/wall_area_c"
+                        android:hint="@string/width_hint_text"
                         app:boxBackgroundColor="#FFFFFF"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textWallC">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/wallAreaC"
+                            android:id="@+id/wallWidthC"
+                            style="@style/TextInputEditTextDecimalSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutWallHeightC"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/height_hint_text"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallWidthC"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutWallWidthC">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/wallHeightC"
                             style="@style/TextInputEditTextDecimalSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -371,11 +541,12 @@
                         android:id="@+id/textOrientationC"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/horizontal_layout_margin"
+                        android:layout_marginBottom="4dp"
                         android:text="@string/enter_orientation"
                         android:textColor="@color/colorAccent"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallAreaC"
-                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallAreaC" />
+                        app:layout_constraintBottom_toTopOf="@+id/textViewOrientationWallC"
+                        app:layout_constraintEnd_toStartOf="@+id/getOrientationCButton"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallHeightC" />
 
                     <Spinner
                         android:id="@+id/spinnerOrientationWallC"
@@ -394,20 +565,54 @@
                         android:text="@string/wall_text_d"
                         android:textColor="@color/colorAccent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWallAreaC" />
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWallWidthC" />
+
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:id="@+id/textInputLayoutWallAreaD"-->
+                    <!--                        android:layout_width="120dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="4dp"-->
+                    <!--                        android:hint="@string/wall_area_d"-->
+                    <!--                        app:boxBackgroundColor="#FFFFFF"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/textWallD">-->
+
+                    <!--                        <com.google.android.material.textfield.TextInputEditText-->
+                    <!--                            android:id="@+id/wallAreaD"-->
+                    <!--                            style="@style/TextInputEditTextDecimalSmall"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutWallAreaD"
-                        android:layout_width="120dp"
+                        android:id="@+id/textInputLayoutWallWidthD"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:hint="@string/wall_area_d"
+                        android:hint="@string/width_hint_text"
                         app:boxBackgroundColor="#FFFFFF"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textWallD">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/wallAreaD"
+                            android:id="@+id/wallWidthD"
+                            style="@style/TextInputEditTextDecimalSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutWallHeightD"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/height_hint_text"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallWidthD"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutWallWidthD">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/wallHeightD"
                             style="@style/TextInputEditTextDecimalSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -417,11 +622,12 @@
                         android:id="@+id/textOrientationD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/horizontal_layout_margin"
+                        android:layout_marginBottom="4dp"
                         android:text="@string/enter_orientation"
                         android:textColor="@color/colorAccent"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallAreaD"
-                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallAreaD" />
+                        app:layout_constraintBottom_toTopOf="@+id/textViewOrientationWallD"
+                        app:layout_constraintEnd_toStartOf="@+id/getOrientationDButton"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallHeightD" />
 
                     <Spinner
                         android:id="@+id/spinnerOrientationWallD"
@@ -436,77 +642,78 @@
                         android:id="@+id/textViewOrientationWallA"
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:textColor="@android:color/black"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textOrientationA"
-                        app:layout_constraintStart_toEndOf="@+id/textOrientationA"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallHeightA"
+                        app:layout_constraintEnd_toStartOf="@+id/getOrientationAButton"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallHeightA"
                         tools:text="N" />
 
                     <Button
                         android:id="@+id/getOrientationAButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
                         android:text="@string/get_button_text"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textViewOrientationWallA"
-                        app:layout_constraintStart_toEndOf="@+id/textViewOrientationWallA" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textOrientationA"
+                        tools:layout_editor_absoluteY="107dp" />
 
                     <TextView
                         android:id="@+id/textViewOrientationWallB"
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:textColor="@android:color/black"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textOrientationB"
-                        app:layout_constraintStart_toEndOf="@+id/textOrientationB"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallHeightB"
+                        app:layout_constraintEnd_toStartOf="@+id/getOrientationBButton"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallHeightB"
                         tools:text="N" />
 
                     <Button
                         android:id="@+id/getOrientationBButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
                         android:text="@string/get_button_text"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textViewOrientationWallB"
-                        app:layout_constraintStart_toEndOf="@+id/textViewOrientationWallB" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textOrientationB" />
 
                     <TextView
                         android:id="@+id/textViewOrientationWallC"
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:textColor="@android:color/black"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textOrientationC"
-                        app:layout_constraintStart_toEndOf="@+id/textOrientationC"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallHeightC"
+                        app:layout_constraintEnd_toStartOf="@+id/getOrientationCButton"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallHeightC"
                         tools:text="N" />
 
                     <Button
                         android:id="@+id/getOrientationCButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
                         android:text="@string/get_button_text"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textViewOrientationWallC"
-                        app:layout_constraintStart_toEndOf="@+id/textViewOrientationWallC" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textOrientationC" />
 
                     <TextView
                         android:id="@+id/textViewOrientationWallD"
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:textColor="@android:color/black"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textOrientationD"
-                        app:layout_constraintStart_toEndOf="@+id/textOrientationD"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallHeightD"
+                        app:layout_constraintEnd_toStartOf="@+id/getOrientationDButton"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWallHeightD"
                         tools:text="N" />
 
                     <Button
                         android:id="@+id/getOrientationDButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
                         android:text="@string/get_button_text"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textViewOrientationWallD"
-                        app:layout_constraintStart_toEndOf="@+id/textViewOrientationWallD" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textOrientationD" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -555,18 +762,53 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:id="@+id/textInputLayoutFloorArea"-->
+                    <!--                        android:layout_width="120dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="@dimen/vertical_small_layout_margin"-->
+                    <!--                        android:hint="@string/floor_area"-->
+                    <!--                        app:boxBackgroundColor="#FFFFFF"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/textFloor">-->
+
+                    <!--                        <com.google.android.material.textfield.TextInputEditText-->
+                    <!--                            android:id="@+id/floorArea"-->
+                    <!--                            style="@style/TextInputEditTextDecimalSmall"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
+
+
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutFloorArea"
-                        android:layout_width="120dp"
+                        android:id="@+id/textInputLayoutFloorWidth"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/vertical_small_layout_margin"
-                        android:hint="@string/floor_area"
+                        android:hint="@string/width_hint_text"
                         app:boxBackgroundColor="#FFFFFF"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textFloor">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/floorArea"
+                            android:id="@+id/floorWidth"
+                            style="@style/TextInputEditTextDecimalSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutFloorLength"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/length_hint_text"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutFloorWidth"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutFloorWidth">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/floorLength"
                             style="@style/TextInputEditTextDecimalSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -580,8 +822,8 @@
                         android:layout_marginEnd="@dimen/horizontal_small_layout_margin"
                         android:text="@string/add_floor_types_button_text"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutFloorArea"
-                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutFloorArea" />
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutFloorLength"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutFloorLength" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -629,18 +871,53 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:id="@+id/textInputLayoutWindowArea"-->
+                    <!--                        android:layout_width="120dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="@dimen/vertical_small_layout_margin"-->
+                    <!--                        android:hint="@string/window_area"-->
+                    <!--                        app:boxBackgroundColor="#FFFFFF"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/textWindow">-->
+
+                    <!--                        <com.google.android.material.textfield.TextInputEditText-->
+                    <!--                            android:id="@+id/windowArea"-->
+                    <!--                            style="@style/TextInputEditTextDecimalSmall"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
+
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutWindowArea"
-                        android:layout_width="120dp"
+                        android:id="@+id/textInputLayoutWindowWidth"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/vertical_small_layout_margin"
-                        android:hint="@string/window_area"
+                        android:hint="@string/width_hint_text"
                         app:boxBackgroundColor="#FFFFFF"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textWindow">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/windowArea"
+                            android:id="@+id/windowWidth"
+                            style="@style/TextInputEditTextDecimalSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutWindowHeight"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/height_hint_text"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:layout_constraintStart_toEndOf="@id/textInputLayoutWindowWidth"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutWindowWidth">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/windowHeight"
                             style="@style/TextInputEditTextDecimalSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -653,8 +930,8 @@
                         android:layout_marginStart="@dimen/horizontal_small_layout_margin"
                         android:layout_marginEnd="@dimen/horizontal_small_layout_margin"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWindowArea"
-                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutWindowArea" />
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutWindowHeight"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutWindowHeight" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -702,18 +979,54 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:id="@+id/textInputLayoutDoorArea"-->
+                    <!--                        android:layout_width="120dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="@dimen/vertical_small_layout_margin"-->
+                    <!--                        android:hint="@string/door_area"-->
+                    <!--                        app:boxBackgroundColor="#FFFFFF"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/textDoor">-->
+
+                    <!--                        <com.google.android.material.textfield.TextInputEditText-->
+                    <!--                            android:id="@+id/doorArea"-->
+                    <!--                            style="@style/TextInputEditTextDecimalSmall"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
+
+
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutDoorArea"
-                        android:layout_width="120dp"
+                        android:id="@+id/textInputLayoutDoorWidth"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/vertical_small_layout_margin"
-                        android:hint="@string/door_area"
+                        android:hint="@string/width_hint_text"
                         app:boxBackgroundColor="#FFFFFF"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textDoor">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/doorArea"
+                            android:id="@+id/doorWidth"
+                            style="@style/TextInputEditTextDecimalSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutDoorHeight"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/height_hint_text"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:layout_constraintStart_toEndOf="@id/textInputLayoutDoorWidth"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutDoorWidth">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/doorHeight"
                             style="@style/TextInputEditTextDecimalSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -723,11 +1036,13 @@
                         android:id="@+id/textDoorOrientation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/horizontal_layout_margin"
+                        android:layout_marginBottom="4dp"
                         android:text="@string/enter_orientation"
                         android:textColor="@color/colorAccent"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutDoorArea"
-                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutDoorArea" />
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toTopOf="@+id/textViewOrientationDoor"
+                        app:layout_constraintEnd_toStartOf="@+id/getDoorOrientationButton"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutDoorHeight" />
 
                     <Spinner
                         android:id="@+id/spinnerOrientationDoor"
@@ -744,18 +1059,20 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:textColor="@android:color/black"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textDoorOrientation"
-                        app:layout_constraintStart_toEndOf="@+id/textDoorOrientation"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutDoorHeight"
+                        app:layout_constraintEnd_toStartOf="@+id/getDoorOrientationButton"
+                        app:layout_constraintHorizontal_bias="0.39"
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutDoorHeight"
                         tools:text="N" />
 
                     <Button
                         android:id="@+id/getDoorOrientationButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
                         android:text="@string/get_button_text"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/textViewOrientationDoor"
-                        app:layout_constraintStart_toEndOf="@+id/textViewOrientationDoor" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textDoorOrientation" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -804,18 +1121,52 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+                    <!--                        android:id="@+id/textInputLayoutCeilingArea"-->
+                    <!--                        android:layout_width="120dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="@dimen/vertical_small_layout_margin"-->
+                    <!--                        android:hint="@string/ceiling_area"-->
+                    <!--                        app:boxBackgroundColor="#FFFFFF"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/textCeiling">-->
+
+                    <!--                        <com.google.android.material.textfield.TextInputEditText-->
+                    <!--                            android:id="@+id/ceilingArea"-->
+                    <!--                            style="@style/TextInputEditTextDecimalSmall"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content" />-->
+                    <!--                    </com.google.android.material.textfield.TextInputLayout>-->
+
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayoutCeilingArea"
-                        android:layout_width="120dp"
+                        android:id="@+id/textInputLayoutCeilingWidth"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/vertical_small_layout_margin"
-                        android:hint="@string/ceiling_area"
+                        android:hint="@string/width_hint_text"
                         app:boxBackgroundColor="#FFFFFF"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textCeiling">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/ceilingArea"
+                            android:id="@+id/ceilingWidth"
+                            style="@style/TextInputEditTextDecimalSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutCeilingLength"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/length_hint_text"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:layout_constraintStart_toEndOf="@id/textInputLayoutCeilingWidth"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutCeilingWidth">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ceilingLength"
                             style="@style/TextInputEditTextDecimalSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
@@ -828,8 +1179,8 @@
                         android:layout_marginStart="@dimen/horizontal_small_layout_margin"
                         android:layout_marginEnd="@dimen/horizontal_small_layout_margin"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutCeilingArea"
-                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutCeilingArea" />
+                        app:layout_constraintStart_toEndOf="@+id/textInputLayoutCeilingLength"
+                        app:layout_constraintTop_toTopOf="@+id/textInputLayoutCeilingLength" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

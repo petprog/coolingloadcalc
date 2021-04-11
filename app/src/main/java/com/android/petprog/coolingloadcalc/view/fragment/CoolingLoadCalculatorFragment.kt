@@ -400,8 +400,9 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             mCeilingLoad = ceilingLoad().toKilo().toOneDecimal()
             mPeopleLoad = peopleLoad().toKilo().toOneDecimal()
 
-            if (binding.spaceArea.text!!.isNotEmpty()) {
-                spaceArea = binding.spaceArea.text.toString().toDouble()
+            if (binding.spaceWidth.text!!.isNotEmpty() && binding.spaceLength.text!!.isNotEmpty()) {
+                spaceArea = binding.spaceWidth.text.toString()
+                    .toDouble() * binding.spaceLength.text.toString().toDouble()
             }
 
             if (binding.spaceName.text!!.isNotEmpty()) {
@@ -670,7 +671,7 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
 
     private fun peopleLoad(): Double {
         var load = 0.0
-        if (!binding.wallAreaA.text.isNullOrEmpty()) {
+        if (!binding.numberOfPeople.text.isNullOrEmpty()) {
             mNumberOfPeople = binding.numberOfPeople.text.toString().toInt()
             val totalLoad = getHeatGainByPeople(mSpacePurpose)
             load += peopleLoadFormula(mNumberOfPeople, totalLoad, 1)
@@ -746,9 +747,11 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
 
     private fun roofCoolingLoad(): Double {
         var load = 0.0
-        if (!binding.roofArea.text.isNullOrEmpty()) {
+        if (!binding.roofWidth.text.isNullOrEmpty() && !binding.roofLength.text.isNullOrEmpty()) {
             val u = convertToThermalTransmittance(mRoofType)
-            mRoofArea = binding.roofArea.text.toString().toDouble()
+            mRoofArea =
+                binding.roofWidth.text.toString().toDouble() * binding.roofLength.text.toString()
+                    .toDouble()
             val cltd =
                 calculateCltdCorrected(5, stateTempDetail.meanTemp)
             load = coolingLoadRWC(u, cltd, mRoofArea)
@@ -758,11 +761,13 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
 
     private fun wallCoolingLoad(): Double {
         var load = 0.0
-        if (!binding.wallAreaA.text.isNullOrEmpty()) {
+        if (!binding.wallWidthA.text.isNullOrEmpty() && !binding.wallHeightA.text.isNullOrEmpty()) {
             val orientation = binding.textViewOrientationWallA.text.toString()
             mWallAOrientationA = orientation
             val u = convertToThermalTransmittance(mWallType)
-            mWallAreaA = binding.wallAreaA.text.toString().toDouble()
+            mWallAreaA =
+                binding.wallWidthA.text.toString().toDouble() * binding.wallHeightA.text.toString()
+                    .toDouble()
             val cltdCorrected =
                 calculateCltdCorrected(
                     selectCltdWall(orientation),
@@ -771,11 +776,13 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             load = coolingLoadRWC(u, cltdCorrected, mWallAreaA)
         }
 
-        if (!binding.wallAreaB.text.isNullOrEmpty()) {
+        if (!binding.wallWidthB.text.isNullOrEmpty() && !binding.wallHeightB.text.isNullOrEmpty()) {
             val orientation = binding.textViewOrientationWallB.text.toString()
             mWallAOrientationB = orientation
             val u = convertToThermalTransmittance(mWallType)
-            mWallAreaB = binding.wallAreaB.text.toString().toDouble()
+            mWallAreaB =
+                binding.wallWidthB.text.toString().toDouble() * binding.wallHeightB.text.toString()
+                    .toDouble()
             val cltd =
                 calculateCltdCorrected(
                     selectCltdWall(orientation),
@@ -784,11 +791,13 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             load += coolingLoadRWC(u, cltd, mWallAreaB)
         }
 
-        if (!binding.wallAreaC.text.isNullOrEmpty()) {
+        if (!binding.wallWidthC.text.isNullOrEmpty() && !binding.wallHeightC.text.isNullOrEmpty()) {
             val orientation = binding.textViewOrientationWallC.text.toString()
             mWallAOrientationC = orientation
             val u = convertToThermalTransmittance(mWallType)
-            mWallAreaC = binding.wallAreaC.text.toString().toDouble()
+            mWallAreaC =
+                binding.wallWidthC.text.toString().toDouble() * binding.wallHeightC.text.toString()
+                    .toDouble()
             val cltd =
                 calculateCltdCorrected(
                     selectCltdWall(orientation),
@@ -798,11 +807,13 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             load += coolingLoadRWC(u, cltd, mWallAreaC)
         }
 
-        if (!binding.wallAreaD.text.isNullOrEmpty()) {
+        if (!binding.wallWidthD.text.isNullOrEmpty() && !binding.wallHeightD.text.isNullOrEmpty()) {
             val orientation = binding.textViewOrientationWallD.text.toString()
             mWallAOrientationD = orientation
             val u = convertToThermalTransmittance(mWallType)
-            mWallAreaD = binding.wallAreaD.text.toString().toDouble()
+            mWallAreaD =
+                binding.wallWidthD.text.toString().toDouble() * binding.wallHeightD.text.toString()
+                    .toDouble()
             val cltd =
                 calculateCltdCorrected(
                     selectCltdWall(orientation),
@@ -815,8 +826,10 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
 
     private fun floorCoolingLoad(): Double {
         var load = 0.0
-        if (!binding.floorArea.text.isNullOrEmpty()) {
-            mFloorArea = binding.floorArea.text.toString().toDouble()
+        if (!binding.floorWidth.text.isNullOrEmpty() && !binding.floorLength.text.isNullOrEmpty()) {
+            mFloorArea =
+                binding.floorWidth.text.toString().toDouble() * binding.floorLength.text.toString()
+                    .toDouble()
             load = coolingLoadPCF(mTotalFloorTypeU, mFloorArea, 1.0, 1.0)
         }
         return load
@@ -824,11 +837,13 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
 
     private fun doorLoad(): Double {
         var load = 0.0
-        if (!binding.doorArea.text.isNullOrEmpty()) {
+        if (!binding.doorWidth.text.isNullOrEmpty() && !binding.doorHeight.text.isNullOrEmpty()) {
             val orientation = binding.textDoorOrientation.text.toString()
             mDoorOrientation = orientation
             val u = 1.0 // constant
-            mDoorArea = binding.doorArea.text.toString().toDouble()
+            mDoorArea =
+                binding.doorWidth.text.toString().toDouble() * binding.doorHeight.text.toString()
+                    .toDouble()
             val cltd =
                 calculateCltdCorrected(
                     selectCltdDoor(orientation),
@@ -841,11 +856,12 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
 
     private fun windowLoad(): Double {
         var load = 0.0
-        if (!binding.windowArea.text.isNullOrEmpty()) {
+        if (!binding.windowWidth.text.isNullOrEmpty() && !binding.windowHeight.text.isNullOrEmpty()) {
 //            val orientation = binding.textDoorOrientation.text.toString()
 //            mDoorOrientation = orientation
             val u = 1.0 // constant
-            mWindowArea = binding.windowArea.text.toString().toDouble()
+            mWindowArea = binding.windowWidth.text.toString()
+                .toDouble() * binding.windowHeight.text.toString().toDouble()
             val cltd =
                 calculateCltdCorrected(
                     43,
@@ -858,9 +874,10 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
 
     private fun ceilingLoad(): Double {
         var load = 0.0
-        if (!binding.ceilingArea.text.isNullOrEmpty()) {
+        if (!binding.ceilingWidth.text.isNullOrEmpty() && !binding.ceilingLength.text.isNullOrEmpty()) {
             val u = convertToThermalTransmittance(mCeilingType)
-            mCeilingArea = binding.ceilingArea.text.toString().toDouble()
+            mCeilingArea = binding.ceilingWidth.text.toString()
+                .toDouble() * binding.ceilingLength.text.toString().toDouble()
             load = coolingLoadPCF(u, mCeilingArea, 1.0, 1.0)
         }
         return load
