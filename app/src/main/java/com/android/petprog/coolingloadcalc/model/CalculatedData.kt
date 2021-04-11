@@ -5,11 +5,21 @@
 package com.android.petprog.coolingloadcalc.model
 
 import android.os.Parcelable
-import kotlinx.android.parcel.IgnoredOnParcel
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.android.petprog.coolingloadcalc.model.converter.DateConverters
 import kotlinx.android.parcel.Parcelize
+import java.util.*
 
 @Parcelize
+@Entity(tableName = "calculated_data")
 data class CalculatedData(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
+    @TypeConverters(DateConverters::class)
+    val date: Date,
+    val spaceName: String,
     var stateName: String,
     var spaceArea: Double,
     var purposeOfSpace: String,
@@ -38,10 +48,14 @@ data class CalculatedData(
     val ceilingType: String,
     val ceilingArea: Double,
     val ceilingLoad: Double,
-    val listOfEquipments: String
+    val listOfEquipments: String,
+    val equipmentLoad: Double,
+    val numberOfPeople: Int,
+    val peopleLoad: Double,
+    val totalLoad: Double
 //    val totalEquipmentsLoad: Double
 ) : Parcelable {
 
-    @IgnoredOnParcel
-    val description: String = "space area $spaceArea"
+//    @IgnoredOnParcel
+//    val description: String = "space area $spaceArea"
 }

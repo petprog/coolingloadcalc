@@ -2,47 +2,51 @@
     <string name="app_name">CoolingLoadCalc</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="first_fragment_label">Cooling Load Calculator</string>
+    <string name="second_fragment_label">Details</string>
+    <string name="fragment_calculated_data_list_label">List of Calculated Data</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="m_square_text">m<sup><small>2</small></sup></string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-    <string name="space_area">Space Area</string>
+    <string name="space_name_hint">Space name</string>
+
+    <string name="space_area">Space Area (m<sup><small>2</small></sup>)</string>
     <string name="space_text">Space</string>
 
     <string name="space_purpose">Purpose of Space</string>
 
     <string name="roof_text">Roof</string>
-    <string name="roof_area">Roof Area</string>
+    <string name="roof_area">Area (m<sup><small>2</small></sup>)</string>
 
     <string name="wall_text">Walls</string>
 
     <string name="wall_text_a">Wall A</string>
-    <string name="wall_area_a">Wall A Area</string>
+    <string name="wall_area_a">Area (m<sup><small>2</small></sup>)</string>
 
     <string name="wall_text_b">Wall B</string>
-    <string name="wall_area_b">Wall B Area</string>
+    <string name="wall_area_b">Area (m<sup><small>2</small></sup>)</string>
 
     <string name="wall_text_c">Wall C</string>
-    <string name="wall_area_c">Wall C Area</string>
+    <string name="wall_area_c">Area (m<sup><small>2</small></sup>)</string>
 
     <string name="wall_text_d">Wall D</string>
-    <string name="wall_area_d">Wall D Area</string>
+    <string name="wall_area_d">Area (m<sup><small>2</small></sup>)</string>
 
     <string name="floor_text">Floor</string>
-    <string name="floor_area">Floor Area</string>
+    <string name="floor_area">Area (m<sup><small>2</small></sup>)</string>
 
     <string name="window_text">Window</string>
-    <string name="window_area">Window Area</string>
+    <string name="window_area">Area (m<sup><small>2</small></sup>)</string>
 
     <string name="door_text">Door</string>
-    <string name="door_area">Door Area</string>
+    <string name="door_area">Area (m<sup><small>2</small></sup>)</string>
 
     <string name="ceiling_text">Ceiling</string>
-    <string name="ceiling_area">Ceiling Area</string>
+    <string name="ceiling_area">Area (m<sup><small>2</small></sup>)</string>
 
     <string-array name="space_purposes">
         <item>None</item>
@@ -51,7 +55,6 @@
         <item>Bedroom</item>
         <item>Barber Shop</item>
         <item>Beauty salon</item>
-        <item>Break salon</item>
         <item>Break room</item>
         <item>Classroom</item>
         <item>Computer lab</item>
@@ -89,18 +92,18 @@
     </string-array>
 
     <string-array name="roof_types">
-        <item>Asbestos </item>
-        <item>Aluminium Roofing Sheet</item>
-        <item>Stone coated Roofing Sheet</item>
+        <item>Asbestos</item>
+        <item>Aluminium</item>
+        <item>Stone coated</item>
         <item>Fibre</item>
         <item>Pitched roof with felt</item>
-        <item>Slates roofing</item>
+        <item>Slate</item>
     </string-array>
 
     <string-array name="wall_types">
-        <item>Hollow Block walls</item>
-        <item>Bricks walls</item>
-        <item>Clay file walls</item>
+        <item>Hollow Block</item>
+        <item>Bricks</item>
+        <item>Clay file</item>
     </string-array>
 
     <string-array name="floor_types">
@@ -132,22 +135,26 @@
     <string name="cancel">"Cancel"</string>
 
     <string-array name="equipments">
-        <item>Fryer</item>
-        <item>Microwave</item>
-        <item>Gas Cooker with oven</item>
-        <item>Gas Cooker with oven</item>
-        <item>Electric cooker without oven</item>
         <item>Blender</item>
-        <item>Toaster</item>
-        <item>Coffee or heater</item>
+        <item>Coffee Maker</item>
+        <item>Computer</item>
+        <item>Electric cooker without oven</item>
         <item>Food Warmer</item>
+        <item>Fryer</item>
+        <item>Gas Cooker with oven</item>
+        <item>Hair Dryer</item>
         <item>Hot Plate (Double Burner)</item>
         <item>Hot Plate (Single Burner)</item>
+        <item>Lamp</item>
+        <item>Microwave</item>
+        <item>Printer</item>
         <item>Refrigerator (Small)</item>
         <item>Refrigerator (Large)</item>
         <item>Steam Cooker</item>
         <item>Steam Kettle</item>
+        <item>Set-top Box</item>
         <item>Toaster</item>
+        <item>TV</item>
 
     </string-array>
 
@@ -220,26 +227,30 @@
 
     <string name="submit_button">Submit</string>
 
-<!--    Second screen - details of the calculation-->
+    <!--    Second screen - details of the calculation-->
 
     <string name="external_loads_text">External loads</string>
     <string name="internal_loads_text">Internal loads</string>
     <string name="Infiltration_and_ventilation_loads_text">Infiltration and Ventilation loads</string>
 
 
+    <string name="number_of_people_text_card">Number of People</string>
+
     <string name="roof_type_text">Roof Type:</string>
-    <string name="roof_load_text">Roof Load:</string>
+    <string name="people_text">People</string>
+    <string name="roof_load_text">Roof Load (KW):</string>
     <string name="wall_type_text">Wall Type:</string>
-    <string name="wall_load_text">Wall Load:</string>
-    <string name="floor_type_text">Floor Type:</string>
-    <string name="floor_load_text">Floor Load:</string>
+    <string name="wall_load_text">Wall Load (KW):</string>
+    <string name="floor_type_text">Floor Type :</string>
+    <string name="floor_load_text">Floor Load (KW):</string>
     <string name="door_orientation_text">Door Orientation:</string>
-    <string name="door_load_text">Door Load:</string>
+    <string name="door_load_text">Door Load (KW):</string>
     <string name="window_type_text">Window Type:</string>
-    <string name="window_load_text">Window Load:</string>
+    <string name="window_load_text">Window Load (KW):</string>
+    <string name="people_load_text">People Load (KW):</string>
     <string name="ceiling_type_text">Ceiling Type:</string>
-    <string name="ceiling_load_text">Ceiling Load:</string>
-    <string name="equipments_load_text">Equipments Load:</string>
+    <string name="ceiling_load_text">Ceiling Load (KW):</string>
+    <string name="equipments_load_text">Equipments Load (KW):</string>
     <string name="list_of_equipments_text">List of Equipments</string>
     <string name="usage_type_text">Usage Type:</string>
     <string name="equipments_text">Equipments:</string>
@@ -248,6 +259,18 @@
     <string name="number_of_people_text">Number of People: </string>
     <string name="calculate_button_text">Calculate</string>
     <string name="get_button_text">Get</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="total_load_text">Total Load</string>
+    <string name="load_in_kw_text">Load In kW</string>
+    <string name="load_in_hp_text">Load In Hp</string>
+    <string name="load_in_ton_text">Load In Ton</string>
+    <string name="Load_in_btu_per_hr_text">Load In BTU/hr</string>
+
+
+    <string name="save_text">Save</string>
+    <string name="required_temperature_text">Required Temperature  <small><sup>o</sup></small>C</string>
 
 
 </resources>

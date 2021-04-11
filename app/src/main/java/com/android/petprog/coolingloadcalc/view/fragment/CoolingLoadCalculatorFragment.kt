@@ -1,4 +1,4 @@
-package com.android.petprog.coolingloadcalc
+package com.android.petprog.coolingloadcalc.view.fragment
 
 import android.content.Context
 import android.hardware.Sensor
@@ -11,15 +11,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.android.petprog.coolingloadcalc.R
 import com.android.petprog.coolingloadcalc.databinding.FragmentCoolingLoadCalculatorBinding
 import com.android.petprog.coolingloadcalc.model.CalculatedData
 import com.android.petprog.coolingloadcalc.model.StateTempDetail
-import com.android.petprog.coolingloadcalc.util.convertFahrenheitToKelvin
+import com.android.petprog.coolingloadcalc.util.convertCelsiusToFahrenheit
+import com.android.petprog.coolingloadcalc.util.convertFahrenheitToCelsius
+import com.android.petprog.coolingloadcalc.util.toKilo
+import com.android.petprog.coolingloadcalc.util.toOneDecimal
+import com.android.petprog.coolingloadcalc.viewmodel.CalculatedDataViewModel
+import java.util.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -134,8 +140,15 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
     private var mListOfEquipments = ""
     var mTotalEquipmentLoad = 0.0
 
+    private var mNumberOfPeople = 0
+    private var mPeopleLoad = 0.0
+
     lateinit var stateTempDetail: StateTempDetail
 
+    private var requiredTemperature = 0
+
+
+    private lateinit var mCalculatedDataViewModel: CalculatedDataViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -149,6 +162,8 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             container,
             false
         )
+
+        mCalculatedDataViewModel = ViewModelProvider(this).get(CalculatedDataViewModel::class.java)
 
         ArrayAdapter.createFromResource(
             requireContext(),
@@ -166,6 +181,11 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
         binding.spinnerOrientationWallB.onItemSelectedListener = this
         binding.spinnerOrientationWallC.onItemSelectedListener = this
         binding.spinnerOrientationWallD.onItemSelectedListener = this
+
+        if (!binding.spaceRequiredTemperature.text.isNullOrEmpty()) {
+            requiredTemperature = binding.spaceRequiredTemperature.text.toString().toInt()
+        }
+
 
         ArrayAdapter.createFromResource(
             requireContext(),
@@ -203,14 +223,14 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             binding.spinnerWallType.adapter = adapter
         }
 
-//        ArrayAdapter.createFromResource(
-//            requireContext(),
-//            R.array.floor_types,
-//            android.R.layout.simple_spinner_item
-//        ).also { adapter ->
-//            // Apply the adapter to the spinner
-//            binding.spinnerFloorType.adapter = adapter
-//        }
+        //        ArrayAdapter.createFromResource(
+        //            requireContext(),
+        //            R.array.floor_types,
+        //            android.R.layout.simple_spinner_item
+        //        ).also { adapter ->
+        //            // Apply the adapter to the spinner
+        //            binding.spinnerFloorType.adapter = adapter
+        //        }
 
         ArrayAdapter.createFromResource(
             requireContext(),
@@ -234,17 +254,18 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
         binding.spinnerSpacePurpose.onItemSelectedListener = this
         binding.spinnerRoofType.onItemSelectedListener = this
         binding.spinnerWallType.onItemSelectedListener = this
+        binding.spinnerWindowType.onItemSelectedListener = this
         binding.spinnerCeilingType.onItemSelectedListener = this
 
-//        binding.submitButton.setOnClickListener {
-//            Toast.makeText(requireContext(), totalWallHeat().toString(), Toast.LENGTH_LONG).show()
-//        }
+        //        binding.submitButton.setOnClickListener {
+        //            Toast.makeText(requireContext(), totalWallHeat().toString(), Toast.LENGTH_LONG).show()
+        //        }
 
         binding.buttonAddEquipment.setOnClickListener {
 
             val builder = AlertDialog.Builder(requireActivity())
             // String array for alert dialog multi choice items
-            var totalU = 0.0
+            var totalLoad = 0.0
             val equipments = resources.getStringArray(R.array.equipments)
             val selectedEquipments = mutableListOf<String>()
             //setTitle
@@ -259,14 +280,14 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             }
             builder.setPositiveButton("OK") { dialog, which ->
                 for (equipment in selectedEquipments) {
-                    totalU += getEquipment(equipment)
-                    mTotalEquipmentLoad = totalU
+                    totalLoad += getEquipment(equipment)
                 }
-//                Toast.makeText(
-//                    requireContext(),
-//                    "totalEquipmentLoad $mTotalEquipmentLoad",
-//                    Toast.LENGTH_SHORT
-//                ).show()
+                mTotalEquipmentLoad = totalLoad / 1000
+                //                Toast.makeText(
+                //                    requireContext(),
+                //                    "totalEquipmentLoad $mTotalEquipmentLoad",
+                //                    Toast.LENGTH_SHORT
+                //                ).show()
                 mListOfEquipments = selectedEquipments.toList().toString()
             }
             builder.setNeutralButton("Cancel") { dialog, which ->
@@ -296,13 +317,14 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             builder.setPositiveButton("OK") { dialog, which ->
                 for (floorType in floorTypesSelected) {
                     totalU += convertToThermalTransmittance(floorType)
-                    mTotalFloorTypeU = totalU
+
                 }
-//                Toast.makeText(
-//                    requireContext(),
-//                    "floorTypesU $mTotalFloorTypeU",
-//                    Toast.LENGTH_SHORT
-//                ).show()
+                mTotalFloorTypeU = totalU
+                //                Toast.makeText(
+                //                    requireContext(),
+                //                    "floorTypesU $mTotalFloorTypeU",
+                //                    Toast.LENGTH_SHORT
+                //                ).show()
                 mFloorType = floorTypesSelected.toList().toString()
             }
             // Set the neutral/cancel button click listener
@@ -317,8 +339,29 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
         return binding.root
     }
 
-    private fun getEquipment(equipment: String): Double {
-        return 0.0
+    private fun getEquipment(equipment: String): Int {
+
+        return when (equipment) {
+            "Blender" -> 470
+            "Coffee Maker" -> 1660
+            "Computer" -> 120
+            "Electric cooker without oven" -> 1320
+            "Food Warmer" -> 250
+            "Fryer" -> 250
+            "Gas Cooker with oven" -> 800
+            "Hair Dryer" -> 450
+            "Hot Plate (Double Burner)" -> 1830
+            "Hot Plate (Single Burner)" -> 1040
+            "Lamp" -> 30
+            "Microwave" -> 2630
+            "Refrigerator (Small)" -> 690
+            "Refrigerator (Large)" -> 310
+            "Steam Cooker" -> 8120
+            "Steam Kettle" -> 35
+            "Toaster" -> 1510
+            "TV" -> 250
+            else -> 40
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -347,18 +390,31 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
 
         binding.calculateButton.setOnClickListener {
             var spaceArea = 0.0
-            mRoofLoad = roofCoolingLoad()
-            mWallLoad = wallCoolingLoad()
-            mFloorLoad = floorCoolingLoad()
-            mWindowArea = windowLoad()
-            mDoorLoad = doorLoad()
-            mCeilingLoad = ceilingLoad()
+            var spaceName = ""
+            var totalLoad = 0.0
+            mRoofLoad = roofCoolingLoad().toKilo().toOneDecimal()
+            mWallLoad = wallCoolingLoad().toKilo().toOneDecimal()
+            mFloorLoad = floorCoolingLoad().toKilo().toOneDecimal()
+            mWindowLoad = windowLoad().toKilo().toOneDecimal()
+            mDoorLoad = doorLoad().toKilo().toOneDecimal()
+            mCeilingLoad = ceilingLoad().toKilo().toOneDecimal()
+            mPeopleLoad = peopleLoad().toKilo().toOneDecimal()
 
             if (binding.spaceArea.text!!.isNotEmpty()) {
                 spaceArea = binding.spaceArea.text.toString().toDouble()
             }
 
+            if (binding.spaceName.text!!.isNotEmpty()) {
+                spaceName = binding.spaceName.text.toString()
+            }
+
+            totalLoad =
+                (mRoofLoad + mWallLoad + mFloorLoad + mWindowLoad + mDoorLoad + mCeilingLoad + mPeopleLoad + mTotalEquipmentLoad).toOneDecimal()
+
             val data = CalculatedData(
+                0,
+                Date(),
+                spaceName,
                 stateName,
                 spaceArea,
                 mSpacePurpose,
@@ -387,8 +443,14 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
                 mCeilingType,
                 mCeilingArea,
                 mCeilingLoad,
-                mListOfEquipments
+                mListOfEquipments,
+                mTotalEquipmentLoad,
+                mNumberOfPeople,
+                mPeopleLoad,
+                totalLoad
             )
+
+//            mCalculatedDataViewModel.addCalculatedData(data)
 
 //            Toast.makeText(requireContext(), data.description, Toast.LENGTH_LONG).show()
             val direction =
@@ -545,20 +607,22 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
 
             // Roofs
             "Asbestos" -> 27.0
-            "Aluminium Roofing Sheet" -> 17.0
-            "Slate roofing" -> 114.0
+            "Aluminium" -> 17.0
+            "Stone coated" -> 12.9
+            "Slate" -> 114.0
+            "Fibre" -> 10.0
             "Pitched roof with felt" -> 0.6
 
             // Wall
-            "Hollow Block walls" -> 1.7
-            "Clay file walls" -> 3.07
-            "Bricks walls" -> 2.2
+            "Hollow Block" -> 1.7
+            "Clay file" -> 3.07
+            "Bricks" -> 2.2
 
             // Window
             "Wooding frame" -> 1.7
             "Metal frame" -> 5.8
 
-            else -> 0.0
+            else -> 1.0
         }
     }
 
@@ -582,8 +646,12 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
         return thermalTransmittance * cltdCorrected * area
     }
 
-    private fun calculateCltdCorrected(cltd: Int, meanTemp: Double, dailyRange: Int): Double {
-        return (cltd + (78 - dailyRange) + (meanTemp - 85)).convertFahrenheitToKelvin()
+    private fun calculateCltdCorrected(
+        cltd: Int,
+        meanTemp: Double,
+        requiredTemp: Int = requiredTemperature.toDouble().convertCelsiusToFahrenheit()
+    ): Double {
+        return (cltd + (78 - requiredTemp) + (meanTemp - 85)).convertFahrenheitToCelsius()
     }
 
     private fun solarLoadThroughGlass(area: Double, sc: Double, scl: Double): Double {
@@ -596,11 +664,50 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
         tempAdjacentSpace: Double,
         tempInsideDesign: Double
     ): Double {
-        return thermalTransmittance * area * (tempAdjacentSpace - tempInsideDesign)
+        return thermalTransmittance * area * (requiredTemperature + 21 - requiredTemperature)
     }
 
-    private fun peopleLoad(n: Double, shg: Double, ccf: Double): Double {
-        return n * shg * ccf
+
+    private fun peopleLoad(): Double {
+        var load = 0.0
+        if (!binding.wallAreaA.text.isNullOrEmpty()) {
+            mNumberOfPeople = binding.numberOfPeople.text.toString().toInt()
+            val totalLoad = getHeatGainByPeople(mSpacePurpose)
+            load += peopleLoadFormula(mNumberOfPeople, totalLoad, 1)
+        }
+        return load
+    }
+
+    private fun getHeatGainByPeople(spacePurpose: String): Int {
+        return when (spacePurpose) {
+            "Auditorium", "Corridor" -> 130
+
+            "Gallery", "Photo studio" -> 160
+            "Bar", "Cafeteria", "Coffee station", "Restaurant" -> 145
+            "Bedroom", "Break room" -> 130
+            "Barber Shop", "Classroom" -> 140
+            "Computer lab", "Library" -> 160
+            "Courtroom" -> 140
+            "Dining room" -> 145
+            "Dance floor" -> 265
+            "Equipment room" -> 295
+            "Gym" -> 585
+            "Museum" -> 160
+            "Office space" -> 200
+            "Pharmacy" -> 160
+            "Pet shop" -> 140
+            "Reception area" -> 130
+            "Supermarket" -> 160
+            "Science lab" -> 140
+            "Stage" -> 115
+            "Swimming pool" -> 140
+            "Warehouse" -> 440
+            else -> 140
+        }
+    }
+
+    private fun peopleLoadFormula(n: Int, shg: Int, ccf: Int): Double {
+        return (n * shg * ccf).toDouble()
     }
 
     private fun lightingLoad(
@@ -643,7 +750,7 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             val u = convertToThermalTransmittance(mRoofType)
             mRoofArea = binding.roofArea.text.toString().toDouble()
             val cltd =
-                calculateCltdCorrected(0, stateTempDetail.meanTemp, stateTempDetail.dailyRangeTemp)
+                calculateCltdCorrected(5, stateTempDetail.meanTemp)
             load = coolingLoadRWC(u, cltd, mRoofArea)
         }
         return load
@@ -659,8 +766,7 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             val cltdCorrected =
                 calculateCltdCorrected(
                     selectCltdWall(orientation),
-                    stateTempDetail.meanTemp,
-                    stateTempDetail.dailyRangeTemp
+                    stateTempDetail.meanTemp
                 )
             load = coolingLoadRWC(u, cltdCorrected, mWallAreaA)
         }
@@ -673,8 +779,7 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             val cltd =
                 calculateCltdCorrected(
                     selectCltdWall(orientation),
-                    stateTempDetail.meanTemp,
-                    stateTempDetail.dailyRangeTemp
+                    stateTempDetail.meanTemp
                 )
             load += coolingLoadRWC(u, cltd, mWallAreaB)
         }
@@ -701,8 +806,7 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             val cltd =
                 calculateCltdCorrected(
                     selectCltdWall(orientation),
-                    stateTempDetail.meanTemp,
-                    stateTempDetail.dailyRangeTemp
+                    stateTempDetail.meanTemp
                 )
             load += coolingLoadRWC(u, cltd, mWallAreaD)
         }
@@ -728,8 +832,7 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             val cltd =
                 calculateCltdCorrected(
                     selectCltdDoor(orientation),
-                    stateTempDetail.meanTemp,
-                    stateTempDetail.dailyRangeTemp
+                    stateTempDetail.meanTemp
                 )
             load += coolingLoadRWC(u, cltd, mDoorArea)
         }
@@ -746,8 +849,7 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             val cltd =
                 calculateCltdCorrected(
                     43,
-                    stateTempDetail.meanTemp,
-                    stateTempDetail.dailyRangeTemp
+                    stateTempDetail.meanTemp
                 )
             load += coolingLoadRWC(u, cltd, mWindowArea)
         }

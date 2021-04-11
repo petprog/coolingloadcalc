@@ -10,20 +10,26 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/textView5"
+                style="@style/detailTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/horizontal_small_layout_margin"
+                android:layout_marginTop="4dp"
                 android:text="@string/space_text"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView6"
+                style="@style/detailTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_layout_margin"
@@ -38,6 +44,7 @@
                 android:id="@+id/tableLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:stretchColumns="*"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -49,14 +56,17 @@
 
                     <TextView
                         android:id="@+id/textViewLocation"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/location_text" />
 
                     <TextView
                         android:id="@+id/detailLocationTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        tools:text="sghshhs" />
 
                 </TableRow>
 
@@ -66,12 +76,14 @@
 
                     <TextView
                         android:id="@+id/textView1"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/space_dimension_text" />
 
                     <TextView
                         android:id="@+id/detailSpaceDimensionTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -83,12 +95,14 @@
 
                     <TextView
                         android:id="@+id/textView2"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/usage_type_text" />
 
                     <TextView
                         android:id="@+id/detailUsageTypeTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -100,6 +114,7 @@
                 android:id="@+id/tableLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:stretchColumns="*"
                 app:layout_constraintTop_toBottomOf="@+id/textView6">
 
@@ -110,12 +125,14 @@
 
                     <TextView
                         android:id="@+id/textView3"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/roof_type_text" />
 
                     <TextView
                         android:id="@+id/detailRoofTypeTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -127,12 +144,14 @@
 
                     <TextView
                         android:id="@+id/textView4"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/roof_area" />
 
                     <TextView
                         android:id="@+id/detailRoofAreaTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -144,12 +163,14 @@
 
                     <TextView
                         android:id="@+id/textViewRoofLoad"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/roof_load_text" />
 
                     <TextView
                         android:id="@+id/detailRoofLoadTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -158,11 +179,13 @@
 
             <TextView
                 android:id="@+id/textView7"
+                style="@style/detailTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_layout_margin"
                 android:layout_marginBottom="@dimen/vertical_small_layout_margin"
                 android:text="@string/wall_text"
+                android:textSize="@dimen/large_text_size"
                 app:layout_constraintBottom_toTopOf="@+id/tableLayout3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -172,8 +195,10 @@
                 android:id="@+id/tableLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:stretchColumns="*"
-                app:layout_constraintTop_toBottomOf="@+id/textView7">
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                tools:layout_editor_absoluteX="8dp">
 
 
                 <TableRow
@@ -182,12 +207,14 @@
 
                     <TextView
                         android:id="@+id/textViewWallType"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/wall_type_text" />
 
                     <TextView
                         android:id="@+id/detailWallTypeTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -199,12 +226,14 @@
 
                     <TextView
                         android:id="@+id/textViewWallA"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/wall_text_a" />
 
                     <TextView
                         android:id="@+id/detailWallATextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -216,12 +245,14 @@
 
                     <TextView
                         android:id="@+id/textViewWallB"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/wall_text_b" />
 
                     <TextView
                         android:id="@+id/detailWallBTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -233,12 +264,14 @@
 
                     <TextView
                         android:id="@+id/textViewWallC"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/wall_text_c" />
 
                     <TextView
                         android:id="@+id/detailWallCTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -250,12 +283,14 @@
 
                     <TextView
                         android:id="@+id/textViewWallD"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/wall_text_d" />
 
                     <TextView
                         android:id="@+id/detailWallDTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -267,12 +302,14 @@
 
                     <TextView
                         android:id="@+id/textViewWallLoad"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/wall_load_text" />
 
                     <TextView
                         android:id="@+id/detailWallLoadTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -281,10 +318,12 @@
 
             <TextView
                 android:id="@+id/textView8"
+                style="@style/detailTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_layout_margin"
                 android:text="@string/floor_text"
+                android:textSize="@dimen/large_text_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
@@ -303,12 +342,14 @@
 
                     <TextView
                         android:id="@+id/textViewFloorType"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/floor_type_text" />
 
                     <TextView
                         android:id="@+id/detailFloorTypeTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -320,12 +361,14 @@
 
                     <TextView
                         android:id="@+id/textViewFloorArea"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/floor_area" />
 
                     <TextView
                         android:id="@+id/detailFloorAreaTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -337,12 +380,14 @@
 
                     <TextView
                         android:id="@+id/textViewFloorLoad"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/floor_load_text" />
 
                     <TextView
                         android:id="@+id/detailFloorLoadTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -351,10 +396,12 @@
 
             <TextView
                 android:id="@+id/textView9"
+                style="@style/detailTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_layout_margin"
                 android:text="@string/window_text"
+                android:textSize="@dimen/large_text_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tableLayout4" />
@@ -374,12 +421,14 @@
 
                     <TextView
                         android:id="@+id/textViewWindowType"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/window_type_text" />
 
                     <TextView
                         android:id="@+id/detailWindowTypeTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -391,12 +440,14 @@
 
                     <TextView
                         android:id="@+id/textViewWindowArea"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/window_area" />
 
                     <TextView
                         android:id="@+id/detailWindowAreaTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -408,12 +459,14 @@
 
                     <TextView
                         android:id="@+id/textViewWindowLoad"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/window_load_text" />
 
                     <TextView
                         android:id="@+id/detailWindowLoadTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -422,10 +475,12 @@
 
             <TextView
                 android:id="@+id/textView10"
+                style="@style/detailTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_layout_margin"
                 android:text="@string/door_text"
+                android:textSize="@dimen/large_text_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tableLayout5" />
@@ -444,12 +499,14 @@
 
                     <TextView
                         android:id="@+id/textViewDoorOrientation"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/door_orientation_text" />
 
                     <TextView
                         android:id="@+id/detailDoorOrientationTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -461,12 +518,14 @@
 
                     <TextView
                         android:id="@+id/textViewDoorArea"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/door_area" />
 
                     <TextView
                         android:id="@+id/detailDoorAreaTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -478,12 +537,14 @@
 
                     <TextView
                         android:id="@+id/textViewDoorLoad"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/door_load_text" />
 
                     <TextView
                         android:id="@+id/detailDoorLoadTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -492,6 +553,7 @@
 
             <TextView
                 android:id="@+id/textView11"
+                style="@style/detailTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_layout_margin"
@@ -514,12 +576,14 @@
 
                     <TextView
                         android:id="@+id/textViewCeilingType"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/ceiling_type_text" />
 
                     <TextView
                         android:id="@+id/detailCeilingTypeTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -531,12 +595,14 @@
 
                     <TextView
                         android:id="@+id/textViewCeilingArea"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/ceiling_area" />
 
                     <TextView
                         android:id="@+id/detailCeilingAreaTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -548,12 +614,14 @@
 
                     <TextView
                         android:id="@+id/textViewCeilingLoad"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/ceiling_load_text" />
 
                     <TextView
                         android:id="@+id/detailCeilingLoadTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -562,6 +630,7 @@
 
             <TextView
                 android:id="@+id/textView12"
+                style="@style/detailTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_layout_margin"
@@ -585,13 +654,15 @@
 
                     <TextView
                         android:id="@+id/textViewEquipments"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/list_of_equipments_text" />
 
                     <TextView
                         android:id="@+id/detailListOfEquipmentsTextView"
-                        android:layout_width="wrap_content"
+                        style="@style/detailValueStyle"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content" />
 
                 </TableRow>
@@ -602,18 +673,175 @@
 
                     <TextView
                         android:id="@+id/textViewEquipmentsLoad"
+                        style="@style/detailPropertyStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/equipments_load_text" />
 
                     <TextView
                         android:id="@+id/detailEquipmentsLoadTextView"
+                        style="@style/detailValueStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
                 </TableRow>
             </TableLayout>
 
+            <TextView
+                android:id="@+id/textView13"
+                style="@style/detailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                android:text="@string/people_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout8" />
+
+            <TableLayout
+                android:id="@+id/tableLayout9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:stretchColumns="*"
+                app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+
+                <TableRow
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewNumberOfPeople"
+                        style="@style/detailPropertyStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_of_people_text" />
+
+                    <TextView
+                        android:id="@+id/detailNumberOfPeopleTextView"
+                        style="@style/detailValueStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewPeopleLoad"
+                        style="@style/detailPropertyStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/people_load_text" />
+
+                    <TextView
+                        android:id="@+id/detailPeopleLoadTextView"
+                        style="@style/detailValueStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/textView14"
+                style="@style/detailTitleStyleForTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/vertical_layout_margin"
+                android:text="@string/total_load_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout9" />
+
+            <TableLayout
+                android:id="@+id/tableLayout10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:stretchColumns="*"
+                app:layout_constraintTop_toBottomOf="@+id/textView14">
+
+
+                <TableRow
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewLoadInKw"
+                        style="@style/detailPropertyStyleForTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/load_in_kw_text" />
+
+                    <TextView
+                        android:id="@+id/detailLoadInKw"
+                        style="@style/detailValueStyleForTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewLoadInHp"
+                        style="@style/detailPropertyStyleForTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/load_in_hp_text" />
+
+                    <TextView
+                        android:id="@+id/detailLoadInHp"
+                        style="@style/detailValueStyleForTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewLoadInTon"
+                        style="@style/detailPropertyStyleForTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/load_in_ton_text" />
+
+                    <TextView
+                        android:id="@+id/detailLoadInTon"
+                        style="@style/detailValueStyleForTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewLoadInBtuPerHr"
+                        style="@style/detailPropertyStyleForTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Load_in_btu_per_hr_text" />
+
+                    <TextView
+                        android:id="@+id/detailLoadInBtuPerHr"
+                        style="@style/detailValueStyleForTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </TableRow>
+            </TableLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

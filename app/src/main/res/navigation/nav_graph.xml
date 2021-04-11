@@ -3,30 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/CoolingLoadCalculatorFragment">
+    app:startDestination="@id/calculatedDataListFragment">
 
     <fragment
         android:id="@+id/CoolingLoadCalculatorFragment"
-        android:name="com.android.petprog.coolingloadcalc.CoolingLoadCalculatorFragment"
+        android:name="com.android.petprog.coolingloadcalc.view.fragment.CoolingLoadCalculatorFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_cooling_load_calculator">
 
         <action
             android:id="@+id/action_CoolingLoadCalculatorFragment_to_DetailFragment"
             app:destination="@id/DetailFragment" />
+        <action
+            android:id="@+id/action_CoolingLoadCalculatorFragment_to_calculatedDataListFragment"
+            app:destination="@id/calculatedDataListFragment" />
     </fragment>
     <fragment
         android:id="@+id/DetailFragment"
-        android:name="com.android.petprog.coolingloadcalc.DetailFragment"
+        android:name="com.android.petprog.coolingloadcalc.view.fragment.DetailFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_detail">
-
-        <action
-            android:id="@+id/action_DetailFragment_to_CoolingLoadCalculatorFragment"
-            app:destination="@id/CoolingLoadCalculatorFragment" />
 
         <argument
             android:name="data"
             app:argType="com.android.petprog.coolingloadcalc.model.CalculatedData" />
+        <action
+            android:id="@+id/action_DetailFragment_to_calculatedDataListFragment"
+            app:destination="@id/calculatedDataListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculatedDataListFragment"
+        android:name="com.android.petprog.coolingloadcalc.view.fragment.CalculatedDataListFragment"
+        android:label="@string/fragment_calculated_data_list_label"
+        tools:layout="@layout/fragment_calculated_data_list" >
+        <action
+            android:id="@+id/action_calculatedDataListFragment_to_DetailFragment"
+            app:destination="@id/DetailFragment" />
+        <action
+            android:id="@+id/action_calculatedDataListFragment_to_CoolingLoadCalculatorFragment"
+            app:destination="@id/CoolingLoadCalculatorFragment" />
     </fragment>
 </navigation>
