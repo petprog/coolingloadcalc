@@ -59,5 +59,14 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
+    <style name="GetOrientationEditText">
+        <item name="android:digits">"NWSE"</item>
+        <item name="android:inputType">text|textCapCharacters</item>
+        <item name="android:maxLength">2</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
 
 </resources>

@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -368,23 +369,38 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
         super.onViewCreated(view, savedInstanceState)
 
         binding.getOrientationAButton.setOnClickListener {
-            binding.textViewOrientationWallA.text = getOrientation(currentDegree)
+            binding.textViewOrientationWallA.setText(
+                getOrientation(currentDegree),
+                TextView.BufferType.EDITABLE
+            )
         }
 
         binding.getOrientationBButton.setOnClickListener {
-            binding.textViewOrientationWallB.text = getOrientation(currentDegree)
+            binding.textViewOrientationWallB.setText(
+                getOrientation(currentDegree),
+                TextView.BufferType.EDITABLE
+            )
         }
 
         binding.getOrientationCButton.setOnClickListener {
-            binding.textViewOrientationWallC.text = getOrientation(currentDegree)
+            binding.textViewOrientationWallC.setText(
+                getOrientation(currentDegree),
+                TextView.BufferType.EDITABLE
+            )
         }
 
         binding.getOrientationDButton.setOnClickListener {
-            binding.textViewOrientationWallD.text = getOrientation(currentDegree)
+            binding.textViewOrientationWallD.setText(
+                getOrientation(currentDegree),
+                TextView.BufferType.EDITABLE
+            )
         }
 
         binding.getDoorOrientationButton.setOnClickListener {
-            binding.textViewOrientationDoor.text = getOrientation(currentDegree)
+            binding.textViewOrientationDoor.setText(
+                getOrientation(currentDegree),
+                TextView.BufferType.EDITABLE
+            )
         }
 
 
@@ -682,7 +698,6 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
     private fun getHeatGainByPeople(spacePurpose: String): Int {
         return when (spacePurpose) {
             "Auditorium", "Corridor" -> 130
-
             "Gallery", "Photo studio" -> 160
             "Bar", "Cafeteria", "Coffee station", "Restaurant" -> 145
             "Bedroom", "Break room" -> 130
@@ -856,7 +871,7 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
 
     private fun windowLoad(): Double {
         var load = 0.0
-        if (!binding.windowWidth.text.isNullOrEmpty() && !binding.windowHeight.text.isNullOrEmpty()) {
+        if (!binding.windowWidth.text.isNullOrEmpty() && !binding.windowHeight.text.isNullOrEmpty() && !binding.numberOfWindow.text.isNullOrEmpty()) {
 //            val orientation = binding.textDoorOrientation.text.toString()
 //            mDoorOrientation = orientation
             val u = 1.0 // constant
@@ -867,7 +882,8 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
                     43,
                     stateTempDetail.meanTemp
                 )
-            load += coolingLoadRWC(u, cltd, mWindowArea)
+            load += (coolingLoadRWC(u, cltd, mWindowArea) * binding.numberOfWindow.text.toString()
+                .toInt())
         }
         return load
     }

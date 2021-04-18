@@ -205,7 +205,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayoutRoofWidth"
-                        android:layout_width="80dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/vertical_small_layout_margin"
                         android:hint="@string/width_hint_text"
@@ -222,7 +222,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayoutRoofLength"
-                        android:layout_width="80dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:hint="@string/length_hint_text"
@@ -638,9 +638,9 @@
                         app:layout_constraintStart_toEndOf="@+id/textOrientationD"
                         app:layout_constraintTop_toTopOf="@+id/textOrientationD" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/textViewOrientationWallA"
-                        android:layout_width="30dp"
+                        style="@style/GetOrientationEditText"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
                         app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallHeightA"
@@ -658,9 +658,9 @@
                         app:layout_constraintTop_toTopOf="@+id/textOrientationA"
                         tools:layout_editor_absoluteY="107dp" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/textViewOrientationWallB"
-                        android:layout_width="30dp"
+                        style="@style/GetOrientationEditText"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
                         app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallHeightB"
@@ -677,9 +677,9 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/textOrientationB" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/textViewOrientationWallC"
-                        android:layout_width="30dp"
+                        style="@style/GetOrientationEditText"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
                         app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallHeightC"
@@ -696,9 +696,9 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/textOrientationC" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/textViewOrientationWallD"
-                        android:layout_width="30dp"
+                        style="@style/GetOrientationEditText"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
                         app:layout_constraintBaseline_toBaselineOf="@+id/textInputLayoutWallHeightD"
@@ -890,7 +890,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayoutWindowWidth"
-                        android:layout_width="80dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/vertical_small_layout_margin"
                         android:hint="@string/width_hint_text"
@@ -908,7 +908,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayoutWindowHeight"
-                        android:layout_width="80dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:hint="@string/height_hint_text"
@@ -927,11 +927,30 @@
                         android:id="@+id/spinnerWindowType"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/horizontal_small_layout_margin"
+                        android:layout_marginStart="16dp"
                         android:layout_marginEnd="@dimen/horizontal_small_layout_margin"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textInputLayoutWindowHeight"
                         app:layout_constraintTop_toTopOf="@+id/textInputLayoutWindowHeight" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayoutNumberOfWindow"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="@string/number_of_window_text"
+                        app:boxBackgroundColor="#FFFFFF"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWindowWidth">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/numberOfWindow"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textSize="@dimen/small_text_size" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -1039,7 +1058,6 @@
                         android:layout_marginBottom="4dp"
                         android:text="@string/enter_orientation"
                         android:textColor="@color/colorAccent"
-                        android:textSize="12sp"
                         app:layout_constraintBottom_toTopOf="@+id/textViewOrientationDoor"
                         app:layout_constraintEnd_toStartOf="@+id/getDoorOrientationButton"
                         app:layout_constraintStart_toEndOf="@+id/textInputLayoutDoorHeight" />
@@ -1053,9 +1071,9 @@
                         app:layout_constraintStart_toEndOf="@+id/textDoorOrientation"
                         app:layout_constraintTop_toTopOf="@+id/textDoorOrientation" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/textViewOrientationDoor"
-                        android:layout_width="wrap_content"
+                        style="@style/GetOrientationEditText"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:textColor="@android:color/black"
@@ -1140,7 +1158,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayoutCeilingWidth"
-                        android:layout_width="80dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/vertical_small_layout_margin"
                         android:hint="@string/width_hint_text"
@@ -1157,7 +1175,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayoutCeilingLength"
-                        android:layout_width="80dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:hint="@string/length_hint_text"

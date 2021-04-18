@@ -29,6 +29,7 @@
     <string name="height_hint_text">Height (m)</string>
     <string name="width_hint_text">Width (m)</string>
     <string name="length_hint_text">Length (m)</string>
+    <string name="number_of_window_text">Number of windows</string>
 
     <string name="wall_text">Walls</string>
 
