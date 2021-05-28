@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.android.petprog.coolingloadcalc.R
 import com.android.petprog.coolingloadcalc.databinding.FragmentDetailBinding
@@ -13,15 +13,17 @@ import com.android.petprog.coolingloadcalc.util.convertFromBtuPerHrToTon
 import com.android.petprog.coolingloadcalc.util.convertFromKwToBtuPerHr
 import com.android.petprog.coolingloadcalc.util.toOneDecimal
 import com.android.petprog.coolingloadcalc.viewmodel.CalculatedDataViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
+@AndroidEntryPoint
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
 
-    private lateinit var mCalculatedDataViewModel: CalculatedDataViewModel
+    private val mCalculatedDataViewModel: CalculatedDataViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,8 +35,6 @@ class DetailFragment : Fragment() {
             container,
             false
         )
-
-        mCalculatedDataViewModel = ViewModelProvider(this).get(CalculatedDataViewModel::class.java)
 
         val args = DetailFragmentArgs.fromBundle(requireArguments())
         binding.detailLocationTextView.text = args.data.stateName

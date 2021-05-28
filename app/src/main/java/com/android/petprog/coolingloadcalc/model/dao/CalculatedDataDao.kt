@@ -18,5 +18,5 @@ interface CalculatedDataDao {
     suspend fun addCalculatedData(data: CalculatedData)
 
     @Query("SELECT * FROM calculated_data ORDER BY id ASC")
-    fun readAllData(): LiveData<List<CalculatedData>>
+    suspend fun readAllData(): List<CalculatedData>
 }

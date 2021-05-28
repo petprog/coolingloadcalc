@@ -6,11 +6,10 @@ package com.android.petprog.coolingloadcalc.model
 
 import androidx.lifecycle.LiveData
 import com.android.petprog.coolingloadcalc.dao.CalculatedDataDao
+import javax.inject.Inject
 
-class CalculatedDataRepository(private val calculatedDataDao: CalculatedDataDao) {
-    val readAllData: LiveData<List<CalculatedData>> = calculatedDataDao.readAllData()
+class CalculatedDataRepository @Inject constructor(private val calculatedDataDao: CalculatedDataDao) {
+    suspend fun readAllData(): List<CalculatedData> = calculatedDataDao.readAllData()
 
-    suspend fun addCalculatedData(data: CalculatedData) {
-        calculatedDataDao.addCalculatedData(data)
-    }
+    suspend fun addCalculatedData(data: CalculatedData) = calculatedDataDao.addCalculatedData(data)
 }

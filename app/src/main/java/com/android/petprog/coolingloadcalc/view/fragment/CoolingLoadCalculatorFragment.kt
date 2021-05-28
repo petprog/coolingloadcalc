@@ -15,6 +15,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.android.petprog.coolingloadcalc.R
@@ -27,12 +28,14 @@ import com.android.petprog.coolingloadcalc.util.toKilo
 import com.android.petprog.coolingloadcalc.util.toOneDecimal
 import com.android.petprog.coolingloadcalc.viewmodel.CalculatedDataViewModel
 import com.android.petprog.coolingloadcalc.viewmodel.CoolingLoadCalculatorFragmentViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import kotlin.math.roundToInt
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+@AndroidEntryPoint
 class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedListener,
     SensorEventListener {
 
@@ -43,9 +46,9 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
 
     private lateinit var stateTempDetail: StateTempDetail
 
-    private lateinit var mCalculatedDataViewModel: CalculatedDataViewModel
+    private val mCalculatedDataViewModel: CalculatedDataViewModel by viewModels()
 
-    private lateinit var mCalculatorFragmentViewModel: CoolingLoadCalculatorFragmentViewModel
+    private val mCalculatorFragmentViewModel: CoolingLoadCalculatorFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,10 +62,6 @@ class CoolingLoadCalculatorFragment : Fragment(), AdapterView.OnItemSelectedList
             container,
             false
         )
-
-        mCalculatedDataViewModel = ViewModelProvider(this).get(CalculatedDataViewModel::class.java)
-        mCalculatorFragmentViewModel =
-            ViewModelProvider(this).get(CoolingLoadCalculatorFragmentViewModel::class.java)
 
         ArrayAdapter.createFromResource(
             requireContext(),

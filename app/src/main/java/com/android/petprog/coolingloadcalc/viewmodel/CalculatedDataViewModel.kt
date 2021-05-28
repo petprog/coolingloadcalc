@@ -4,26 +4,36 @@
 
 package com.android.petprog.coolingloadcalc.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.petprog.coolingloadcalc.model.CalculatedData
 import com.android.petprog.coolingloadcalc.model.CalculatedDataRepository
-import com.android.petprog.coolingloadcalc.model.database.CalculateDataDatabase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CalculatedDataViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class CalculatedDataViewModel @Inject constructor(private val repository: CalculatedDataRepository) :
+    ViewModel() {
 
-    val readAllData: LiveData<List<CalculatedData>>
-    private val repository: CalculatedDataRepository
+    private val _data = MutableLiveData<List<CalculatedData>>()
+    val calculatedListData: LiveData<List<CalculatedData>>
+        get() = _data
 
     init {
-        val calculatedDao = CalculateDataDatabase.getDatabase(application).calculatedDataDao()
-        repository = CalculatedDataRepository(calculatedDao)
-        readAllData =  repository.readAllData
+        readAllData()
     }
+
+    private fun readAllData() {
+        viewModelScope.launch(Dispatchers.IO) {
+            _data.postValue(repository.readAllData())
+        }
+    }
+
+//    val readAllData: LiveData<List<CalculatedData>> = repository.readAllData
 
     fun addCalculatedData(calculatedData: CalculatedData) {
         viewModelScope.launch(Dispatchers.IO) {

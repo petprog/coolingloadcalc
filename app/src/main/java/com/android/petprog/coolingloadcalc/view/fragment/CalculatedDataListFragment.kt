@@ -5,20 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.android.petprog.coolingloadcalc.R
 import com.android.petprog.coolingloadcalc.view.adapter.ListAdapter
 import com.android.petprog.coolingloadcalc.viewmodel.CalculatedDataViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_calculated_data_list.view.*
 
+@AndroidEntryPoint
 class CalculatedDataListFragment : Fragment() {
 
-    private lateinit var mCalculatedDataViewModel: CalculatedDataViewModel
+    private val calculatedDataViewModel: CalculatedDataViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,11 +32,13 @@ class CalculatedDataListFragment : Fragment() {
         val recyclerView = view.recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        val dividerItemDecoration = DividerItemDecoration(requireContext(), LinearLayoutManager(requireContext()).orientation)
+        val dividerItemDecoration = DividerItemDecoration(
+            requireContext(),
+            LinearLayoutManager(requireContext()).orientation
+        )
         recyclerView.addItemDecoration(dividerItemDecoration)
 
-        mCalculatedDataViewModel = ViewModelProvider(this).get(CalculatedDataViewModel::class.java)
-        mCalculatedDataViewModel.readAllData.observe(
+        calculatedDataViewModel.calculatedListData.observe(
             viewLifecycleOwner,
             Observer { calculateDataList ->
                 adapter.setData(calculateDataList)
