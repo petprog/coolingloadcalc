@@ -25,7 +25,7 @@ object AppModule {
         context,
         CalculateDataDatabase::class.java,
         DATABASE_NAME
-    ).fallbackToDestructiveMigration().build()
+    ).build()
 
     @Singleton
     @Provides

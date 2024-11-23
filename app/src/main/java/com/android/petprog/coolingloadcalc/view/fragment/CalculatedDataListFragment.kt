@@ -13,42 +13,45 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.petprog.coolingloadcalc.R
 import com.android.petprog.coolingloadcalc.view.adapter.ListAdapter
 import com.android.petprog.coolingloadcalc.viewmodel.CalculatedDataViewModel
+import com.android.petprog.coolingloadcalc.databinding.FragmentCalculatedDataListBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_calculated_data_list.view.*
 
 @AndroidEntryPoint
 class CalculatedDataListFragment : Fragment() {
 
     private val calculatedDataViewModel: CalculatedDataViewModel by viewModels()
+    private var _binding: FragmentCalculatedDataListBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_calculated_data_list, container, false)
+        _binding = FragmentCalculatedDataListBinding.inflate(inflater, container, false)
+        val view = binding.root
 
         val adapter = ListAdapter()
-        val recyclerView = view.recyclerView
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         val dividerItemDecoration = DividerItemDecoration(
             requireContext(),
             LinearLayoutManager(requireContext()).orientation
         )
-        recyclerView.addItemDecoration(dividerItemDecoration)
+        binding.recyclerView.addItemDecoration(dividerItemDecoration)
 
-        calculatedDataViewModel.calculatedListData.observe(
-            viewLifecycleOwner,
-            Observer { calculateDataList ->
-                adapter.setData(calculateDataList)
-            })
+        calculatedDataViewModel.calculatedListData.observe(viewLifecycleOwner, Observer { calculateDataList ->
+            adapter.setData(calculateDataList)
+        })
 
-        view.floatingActionButton.setOnClickListener {
+        binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_calculatedDataListFragment_to_CoolingLoadCalculatorFragment)
         }
 
         return view
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null // Clean up the binding when the view is destroyed
     }
 }

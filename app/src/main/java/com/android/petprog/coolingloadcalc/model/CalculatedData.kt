@@ -9,7 +9,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.android.petprog.coolingloadcalc.model.converter.DateConverters
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 import java.util.*
 
 @Parcelize
